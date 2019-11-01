@@ -1,0 +1,131 @@
+﻿@model AppPlaneacionDocente.Models.Planeacion
+
+    <div class="box box-warning">
+        <div class="box-header">
+            <div class="box-title">
+                <h4>Formato de Planeación para la Educación Media Superior</h4>
+            </div>
+        </div>
+        <div class="box-body">
+            @using (Html.BeginForm("RegistrarPlaneacion", "Index", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Institución</label>
+                                @Html.TextBoxFor(model => model.strInstitucion, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strInstitucion, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Semestre</label>
+                                @Html.DropDownList("idCatGrado", null, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessage("idCatGrado", null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Grupo</label>
+                                @Html.DropDownList("idCatGrupos", null, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessage("idCatGrupos", null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Asignatura</label>
+                                @Html.DropDownList("idCatMateria", null, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessage("idCatMateria", null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Ciclo Escolar</label>
+                                @Html.DropDownList("idCatCicloEscolar", null, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessage("idCatCicloEscolar", null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Periodo de Aplicación</label>
+                                @Html.DropDownList("idCatPeriodo", null, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessage("idCatPeriodo", null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Objetivos de Aprendizaje</label>
+                                @Html.TextAreaFor(model => model.objetosAprendizaje.strAprendizajeEsperado, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.objetosAprendizaje.strAprendizajeEsperado, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Competencias a Desarrollar</label>
+                                @Html.TextAreaFor(model => model.strCompetenciaDesarrollar, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strCompetenciaDesarrollar, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Criterios de Evaluacion</label>
+                                @Html.TextAreaFor(model => model.strCriteriosEvaluacion, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strCriteriosEvaluacion, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Total de Sesiones</label>
+                                @Html.TextBoxFor(model => model.strTotalSesiones, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strTotalSesiones, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Total de Horas</label>
+                                @Html.TextBoxFor(model => model.strTotalHoras, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strTotalSesiones, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Contexto de la Escuela</label>
+                                @Html.TextAreaFor(model => model.strContextoEscuela, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strContextoEscuela, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Desempeño del Estudiante al Concluir el Bloque</label>
+                                @Html.TextAreaFor(model => model.strDesempeñoEstudianteConcluirBloque, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strDesempeñoEstudianteConcluirBloque, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Diagnostico Socio Educativo</label>
+                                @Html.TextAreaFor(model => model.strDiagnosticoSocioEducativo, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strDiagnosticoSocioEducativo, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Bloque</label>
+                                @Html.TextAreaFor(model => model.strBloques, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.strBloques, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <input type="submit" name="name" value="Enviar Datos" class="btn btn-warning" />
+                        </div>
+                    </div>                   
+                </div>
+            }
+            
+        </div>
+    </div>
+
+@section scripts
+    {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#idCatGrado').change(function () {
+                let value = $(this).val();
+                debugger;
+                let url = '/Index/GetAllGruposByGrado?_idGrado=' + value;
+           
+                $.get(url).done(function (response) {
+                    $('#idCatGrupos').empty();
+                    $('#idCatGrupos').append(response);
+
+                });
+            });
+        });
+
+    </script>
+    }
+
+       
+ 

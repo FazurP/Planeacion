@@ -1,0 +1,1431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PlaneacionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CatBloques">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="250" />
+          <Property Name="idCatMateria" Type="int" />
+        </EntityType>
+        <EntityType Name="CatCicloEscolar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CatGrado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CatGrupos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCatGrado" Type="int" />
+          <Property Name="strValor" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CatMateria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CatPeriodo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CatProyectos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombre" Type="varchar" MaxLength="250" />
+          <Property Name="strDescripcion" Type="varchar" MaxLength="8000" />
+          <Property Name="idCatMateria" Type="int" />
+          <Property Name="idCatBloque" Type="int" />
+          <Property Name="idCatGrado" Type="int" />
+          <Property Name="idCatPeriodo" Type="int" />
+          <Property Name="idPlaneacion" Type="int" />
+        </EntityType>
+        <EntityType Name="CatTipoUsuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TblActividadesEnseñanzaAprendizaje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strApertura" Type="varchar" MaxLength="2500" />
+          <Property Name="strDesarrollo" Type="varchar" MaxLength="2500" />
+          <Property Name="strCierre" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="TblAtributos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strApertura" Type="varchar" MaxLength="2500" />
+          <Property Name="strDesarrollo" Type="varchar" MaxLength="2500" />
+          <Property Name="strCierre" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="TblEstrategiasIntervencion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strApertura" Type="varchar" MaxLength="2500" />
+          <Property Name="strDesarrollo" Type="varchar" MaxLength="2500" />
+          <Property Name="strCierre" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="TblEvidenciaAprendizaje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strApertura" Type="varchar" MaxLength="2500" />
+          <Property Name="strDesarrollo" Type="varchar" MaxLength="2500" />
+          <Property Name="strCierre" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="TblInstrumentosEvaluacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strApertura" Type="varchar" MaxLength="2500" />
+          <Property Name="strDesarrollo" Type="varchar" MaxLength="2500" />
+          <Property Name="strCierre" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="TblMaterialRecursosDidacticos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strApertura" Type="varchar" MaxLength="2500" />
+          <Property Name="strDesarrollo" Type="varchar" MaxLength="2500" />
+          <Property Name="strCierre" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="TblObjetosAprendizaje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strAprendizajeEsperado" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="TblPersonal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombre" Type="varchar" MaxLength="250" />
+          <Property Name="strApellidoPaterno" Type="varchar" MaxLength="250" />
+          <Property Name="strApellidoMaterno" Type="varchar" MaxLength="250" />
+          <Property Name="dteFechaNacimiento" Type="date" />
+          <Property Name="strEmail" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TblPlanDeClase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idActividadesEnseñanzaAprendizaje" Type="int" />
+          <Property Name="idTiempo" Type="int" />
+          <Property Name="idAtributos" Type="int" />
+          <Property Name="idEvidenciaAprendizaje" Type="int" />
+          <Property Name="idInstrumentosEvaluacion" Type="int" />
+          <Property Name="idEstrategiasIntervencion" Type="int" />
+          <Property Name="idMateriasRecursosDidacticos" Type="int" />
+          <Property Name="strBibliografia" Type="varchar" MaxLength="2500" />
+          <Property Name="strObservaciones" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="TblPlaneacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCatMaterias" Type="int" />
+          <Property Name="idCatGrado" Type="int" />
+          <Property Name="idCatPeriodo" Type="int" />
+          <Property Name="idCatCicloEscolar" Type="int" />
+          <Property Name="idCatGrupos" Type="int" />
+          <Property Name="idPlanClase" Type="int" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="idObjetosAprendizaje" Type="int" />
+          <Property Name="strCompetenciaDesarrollar" Type="varchar" MaxLength="8000" />
+          <Property Name="strCriteriosDesempeño" Type="varchar" MaxLength="8000" />
+          <Property Name="strCriteriosEvaluacion" Type="varchar" MaxLength="8000" />
+          <Property Name="strInstitucion" Type="varchar" MaxLength="250" />
+          <Property Name="strTotalSesiones" Type="varchar" MaxLength="250" />
+          <Property Name="strTotalHoras" Type="varchar" MaxLength="250" />
+          <Property Name="strContextoEscuela" Type="varchar" MaxLength="8000" />
+          <Property Name="strDesempeñoEstudianteConcluirBloque" Type="varchar" MaxLength="8000" />
+          <Property Name="strDiagnosticoSocioEducativo" Type="varchar" MaxLength="5000" />
+          <Property Name="strBloques" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="TblTemas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="250" />
+          <Property Name="idCatMateria" Type="int" />
+        </EntityType>
+        <EntityType Name="TblTiempo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strApertura" Type="varchar" MaxLength="2500" />
+          <Property Name="strDesarrollo" Type="varchar" MaxLength="2500" />
+          <Property Name="strCierre" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="TblUsuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strMatricula" Type="varchar" MaxLength="250" />
+          <Property Name="strPassword" Type="varchar" MaxLength="250" />
+          <Property Name="idPersonal" Type="int" />
+          <Property Name="idCatTipoUsuario" Type="int" />
+        </EntityType>
+        <Association Name="FK_CatBloques_CatMateria">
+          <End Role="CatMateria" Type="Self.CatMateria" Multiplicity="0..1" />
+          <End Role="CatBloques" Type="Self.CatBloques" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMateria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CatBloques">
+              <PropertyRef Name="idCatMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatGrupos_CatGrado">
+          <End Role="CatGrado" Type="Self.CatGrado" Multiplicity="0..1" />
+          <End Role="CatGrupos" Type="Self.CatGrupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatGrado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CatGrupos">
+              <PropertyRef Name="idCatGrado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatProyectos_TblPlaneacion">
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="0..1" />
+          <End Role="CatProyectos" Type="Self.CatProyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPlaneacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CatProyectos">
+              <PropertyRef Name="idPlaneacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje">
+          <End Role="TblActividadesEnseñanzaAprendizaje" Type="Self.TblActividadesEnseñanzaAprendizaje" Multiplicity="0..1" />
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblActividadesEnseñanzaAprendizaje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idActividadesEnseñanzaAprendizaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblAtributos">
+          <End Role="TblAtributos" Type="Self.TblAtributos" Multiplicity="0..1" />
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAtributos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idAtributos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblEstrategiasIntervencion">
+          <End Role="TblEstrategiasIntervencion" Type="Self.TblEstrategiasIntervencion" Multiplicity="0..1" />
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEstrategiasIntervencion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idEstrategiasIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblEvidenciaAprendizaje">
+          <End Role="TblEvidenciaAprendizaje" Type="Self.TblEvidenciaAprendizaje" Multiplicity="0..1" />
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEvidenciaAprendizaje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idEvidenciaAprendizaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblInstrumentosEvaluacion">
+          <End Role="TblInstrumentosEvaluacion" Type="Self.TblInstrumentosEvaluacion" Multiplicity="0..1" />
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblInstrumentosEvaluacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idInstrumentosEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblMaterialRecursosDidacticos">
+          <End Role="TblMaterialRecursosDidacticos" Type="Self.TblMaterialRecursosDidacticos" Multiplicity="0..1" />
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMaterialRecursosDidacticos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idMateriasRecursosDidacticos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblTiempo">
+          <End Role="TblTiempo" Type="Self.TblTiempo" Multiplicity="0..1" />
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTiempo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idTiempo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_CatCicloEscolar">
+          <End Role="CatCicloEscolar" Type="Self.CatCicloEscolar" Multiplicity="0..1" />
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCicloEscolar">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idCatCicloEscolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_CatGrupos">
+          <End Role="CatGrupos" Type="Self.CatGrupos" Multiplicity="0..1" />
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatGrupos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idCatGrupos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_CatMateria">
+          <End Role="CatMateria" Type="Self.CatMateria" Multiplicity="0..1" />
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMateria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idCatMaterias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_CatPeriodo">
+          <End Role="CatPeriodo" Type="Self.CatPeriodo" Multiplicity="0..1" />
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatPeriodo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idCatPeriodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_TblObjetosAprendizaje">
+          <End Role="TblObjetosAprendizaje" Type="Self.TblObjetosAprendizaje" Multiplicity="0..1" />
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblObjetosAprendizaje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idObjetosAprendizaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_TblPlanDeClase">
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="0..1" />
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPlanDeClase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idPlanClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_TblUsuarios">
+          <End Role="TblUsuarios" Type="Self.TblUsuarios" Multiplicity="0..1" />
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblTemas_CatMateria">
+          <End Role="CatMateria" Type="Self.CatMateria" Multiplicity="0..1" />
+          <End Role="TblTemas" Type="Self.TblTemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMateria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblTemas">
+              <PropertyRef Name="idCatMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblUsuarios_CatTipoUsuario">
+          <End Role="CatTipoUsuario" Type="Self.CatTipoUsuario" Multiplicity="0..1" />
+          <End Role="TblUsuarios" Type="Self.TblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoUsuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblUsuarios">
+              <PropertyRef Name="idCatTipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblUsuarios_TblPersonal">
+          <End Role="TblPersonal" Type="Self.TblPersonal" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblUsuarios" Type="Self.TblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPersonal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblUsuarios">
+              <PropertyRef Name="idPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PlaneacionModelStoreContainer">
+          <EntitySet Name="CatBloques" EntityType="Self.CatBloques" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatCicloEscolar" EntityType="Self.CatCicloEscolar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatGrado" EntityType="Self.CatGrado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatGrupos" EntityType="Self.CatGrupos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatMateria" EntityType="Self.CatMateria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatPeriodo" EntityType="Self.CatPeriodo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatProyectos" EntityType="Self.CatProyectos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatTipoUsuario" EntityType="Self.CatTipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblActividadesEnseñanzaAprendizaje" EntityType="Self.TblActividadesEnseñanzaAprendizaje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAtributos" EntityType="Self.TblAtributos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEstrategiasIntervencion" EntityType="Self.TblEstrategiasIntervencion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEvidenciaAprendizaje" EntityType="Self.TblEvidenciaAprendizaje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblInstrumentosEvaluacion" EntityType="Self.TblInstrumentosEvaluacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMaterialRecursosDidacticos" EntityType="Self.TblMaterialRecursosDidacticos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblObjetosAprendizaje" EntityType="Self.TblObjetosAprendizaje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPersonal" EntityType="Self.TblPersonal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPlanDeClase" EntityType="Self.TblPlanDeClase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPlaneacion" EntityType="Self.TblPlaneacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTemas" EntityType="Self.TblTemas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTiempo" EntityType="Self.TblTiempo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblUsuarios" EntityType="Self.TblUsuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CatBloques_CatMateria" Association="Self.FK_CatBloques_CatMateria">
+            <End Role="CatMateria" EntitySet="CatMateria" />
+            <End Role="CatBloques" EntitySet="CatBloques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatGrupos_CatGrado" Association="Self.FK_CatGrupos_CatGrado">
+            <End Role="CatGrado" EntitySet="CatGrado" />
+            <End Role="CatGrupos" EntitySet="CatGrupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatProyectos_TblPlaneacion" Association="Self.FK_CatProyectos_TblPlaneacion">
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+            <End Role="CatProyectos" EntitySet="CatProyectos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje" Association="Self.FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje">
+            <End Role="TblActividadesEnseñanzaAprendizaje" EntitySet="TblActividadesEnseñanzaAprendizaje" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblAtributos" Association="Self.FK_TblPlanDeClase_TblAtributos">
+            <End Role="TblAtributos" EntitySet="TblAtributos" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblEstrategiasIntervencion" Association="Self.FK_TblPlanDeClase_TblEstrategiasIntervencion">
+            <End Role="TblEstrategiasIntervencion" EntitySet="TblEstrategiasIntervencion" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblEvidenciaAprendizaje" Association="Self.FK_TblPlanDeClase_TblEvidenciaAprendizaje">
+            <End Role="TblEvidenciaAprendizaje" EntitySet="TblEvidenciaAprendizaje" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblInstrumentosEvaluacion" Association="Self.FK_TblPlanDeClase_TblInstrumentosEvaluacion">
+            <End Role="TblInstrumentosEvaluacion" EntitySet="TblInstrumentosEvaluacion" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblMaterialRecursosDidacticos" Association="Self.FK_TblPlanDeClase_TblMaterialRecursosDidacticos">
+            <End Role="TblMaterialRecursosDidacticos" EntitySet="TblMaterialRecursosDidacticos" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblTiempo" Association="Self.FK_TblPlanDeClase_TblTiempo">
+            <End Role="TblTiempo" EntitySet="TblTiempo" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_CatCicloEscolar" Association="Self.FK_TblPlaneacion_CatCicloEscolar">
+            <End Role="CatCicloEscolar" EntitySet="CatCicloEscolar" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_CatGrupos" Association="Self.FK_TblPlaneacion_CatGrupos">
+            <End Role="CatGrupos" EntitySet="CatGrupos" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_CatMateria" Association="Self.FK_TblPlaneacion_CatMateria">
+            <End Role="CatMateria" EntitySet="CatMateria" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_CatPeriodo" Association="Self.FK_TblPlaneacion_CatPeriodo">
+            <End Role="CatPeriodo" EntitySet="CatPeriodo" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_TblObjetosAprendizaje" Association="Self.FK_TblPlaneacion_TblObjetosAprendizaje">
+            <End Role="TblObjetosAprendizaje" EntitySet="TblObjetosAprendizaje" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_TblPlanDeClase" Association="Self.FK_TblPlaneacion_TblPlanDeClase">
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_TblUsuarios" Association="Self.FK_TblPlaneacion_TblUsuarios">
+            <End Role="TblUsuarios" EntitySet="TblUsuarios" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblTemas_CatMateria" Association="Self.FK_TblTemas_CatMateria">
+            <End Role="CatMateria" EntitySet="CatMateria" />
+            <End Role="TblTemas" EntitySet="TblTemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblUsuarios_CatTipoUsuario" Association="Self.FK_TblUsuarios_CatTipoUsuario">
+            <End Role="CatTipoUsuario" EntitySet="CatTipoUsuario" />
+            <End Role="TblUsuarios" EntitySet="TblUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblUsuarios_TblPersonal" Association="Self.FK_TblUsuarios_TblPersonal">
+            <End Role="TblPersonal" EntitySet="TblPersonal" />
+            <End Role="TblUsuarios" EntitySet="TblUsuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PlaneacionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatBloques">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="idCatMateria" Type="Int32" />
+          <NavigationProperty Name="CatMateria" Relationship="PlaneacionModel.FK_CatBloques_CatMateria" FromRole="CatBloques" ToRole="CatMateria" />
+        </EntityType>
+        <EntityType Name="CatGrado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatGrupos" Relationship="PlaneacionModel.FK_CatGrupos_CatGrado1" FromRole="CatGrado" ToRole="CatGrupos" />
+        </EntityType>
+        <EntityType Name="CatPeriodo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlaneacion_CatPeriodo" FromRole="CatPeriodo" ToRole="TblPlaneacion" />
+        </EntityType>
+        <EntityType Name="CatProyectos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strDescripcion" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="idCatMateria" Type="Int32" />
+          <Property Name="idCatBloque" Type="Int32" />
+          <Property Name="idCatGrado" Type="Int32" />
+          <Property Name="idCatPeriodo" Type="Int32" />
+          <Property Name="idPlaneacion" Type="Int32" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_CatProyectos_TblPlaneacion" FromRole="CatProyectos" ToRole="TblPlaneacion" />
+        </EntityType>
+        <EntityType Name="CatTipoUsuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblUsuarios" Relationship="Self.FK_TblUsuarios_CatTipoUsuario" FromRole="CatTipoUsuario" ToRole="TblUsuarios" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblPersonal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strApellidoPaterno" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strApellidoMaterno" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="dteFechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="strEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblUsuarios" Relationship="Self.FK_TblUsuarios_TblPersonal" FromRole="TblPersonal" ToRole="TblUsuarios" />
+        </EntityType>
+        <EntityType Name="TblTemas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="idCatMateria" Type="Int32" />
+          <NavigationProperty Name="CatMateria" Relationship="PlaneacionModel.FK_TblTemas_CatMateria" FromRole="TblTemas" ToRole="CatMateria" />
+        </EntityType>
+        <EntityType Name="TblUsuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strMatricula" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strPassword" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="idPersonal" Type="Int32" />
+          <Property Name="idCatTipoUsuario" Type="Int32" />
+          <NavigationProperty Name="CatTipoUsuario" Relationship="Self.FK_TblUsuarios_CatTipoUsuario" FromRole="TblUsuarios" ToRole="CatTipoUsuario" />
+          <NavigationProperty Name="TblPersonal" Relationship="Self.FK_TblUsuarios_TblPersonal" FromRole="TblUsuarios" ToRole="TblPersonal" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlaneacion_TblUsuarios" FromRole="TblUsuarios" ToRole="TblPlaneacion" />
+        </EntityType>
+        <Association Name="FK_TblUsuarios_CatTipoUsuario">
+          <End Role="CatTipoUsuario" Type="Self.CatTipoUsuario" Multiplicity="0..1" />
+          <End Role="TblUsuarios" Type="Self.TblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoUsuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblUsuarios">
+              <PropertyRef Name="idCatTipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblUsuarios_TblPersonal">
+          <End Role="TblPersonal" Type="Self.TblPersonal" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblUsuarios" Type="Self.TblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPersonal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblUsuarios">
+              <PropertyRef Name="idPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PlaneacionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatBloques" EntityType="Self.CatBloques" />
+          <EntitySet Name="CatGrado" EntityType="Self.CatGrado" />
+          <EntitySet Name="CatPeriodo" EntityType="Self.CatPeriodo" />
+          <EntitySet Name="CatProyectos" EntityType="Self.CatProyectos" />
+          <EntitySet Name="CatTipoUsuario" EntityType="Self.CatTipoUsuario" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TblPersonal" EntityType="Self.TblPersonal" />
+          <EntitySet Name="TblTemas" EntityType="Self.TblTemas" />
+          <EntitySet Name="TblUsuarios" EntityType="Self.TblUsuarios" />
+          <AssociationSet Name="FK_TblUsuarios_CatTipoUsuario" Association="Self.FK_TblUsuarios_CatTipoUsuario">
+            <End Role="CatTipoUsuario" EntitySet="CatTipoUsuario" />
+            <End Role="TblUsuarios" EntitySet="TblUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblUsuarios_TblPersonal" Association="Self.FK_TblUsuarios_TblPersonal">
+            <End Role="TblPersonal" EntitySet="TblPersonal" />
+            <End Role="TblUsuarios" EntitySet="TblUsuarios" />
+          </AssociationSet>
+          <EntitySet Name="CatCicloEscolar" EntityType="PlaneacionModel.CatCicloEscolar" />
+          <EntitySet Name="CatGrupos" EntityType="PlaneacionModel.CatGrupos" />
+          <AssociationSet Name="FK_CatGrupos_CatGrado1" Association="PlaneacionModel.FK_CatGrupos_CatGrado1">
+            <End Role="CatGrado" EntitySet="CatGrado" />
+            <End Role="CatGrupos" EntitySet="CatGrupos" />
+          </AssociationSet>
+          <EntitySet Name="TblActividadesEnseñanzaAprendizaje" EntityType="PlaneacionModel.TblActividadesEnseñanzaAprendizaje" />
+          <EntitySet Name="TblAtributos" EntityType="PlaneacionModel.TblAtributos" />
+          <EntitySet Name="TblEstrategiasIntervencion" EntityType="PlaneacionModel.TblEstrategiasIntervencion" />
+          <EntitySet Name="TblEvidenciaAprendizaje" EntityType="PlaneacionModel.TblEvidenciaAprendizaje" />
+          <EntitySet Name="TblInstrumentosEvaluacion" EntityType="PlaneacionModel.TblInstrumentosEvaluacion" />
+          <EntitySet Name="TblMaterialRecursosDidacticos" EntityType="PlaneacionModel.TblMaterialRecursosDidacticos" />
+          <EntitySet Name="TblObjetosAprendizaje" EntityType="PlaneacionModel.TblObjetosAprendizaje" />
+          <EntitySet Name="TblPlanDeClase" EntityType="PlaneacionModel.TblPlanDeClase" />
+          <EntitySet Name="TblTiempo" EntityType="PlaneacionModel.TblTiempo" />
+          <AssociationSet Name="FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje" Association="PlaneacionModel.FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje">
+            <End Role="TblActividadesEnseñanzaAprendizaje" EntitySet="TblActividadesEnseñanzaAprendizaje" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblAtributos" Association="PlaneacionModel.FK_TblPlanDeClase_TblAtributos">
+            <End Role="TblAtributos" EntitySet="TblAtributos" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblEstrategiasIntervencion" Association="PlaneacionModel.FK_TblPlanDeClase_TblEstrategiasIntervencion">
+            <End Role="TblEstrategiasIntervencion" EntitySet="TblEstrategiasIntervencion" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblEvidenciaAprendizaje" Association="PlaneacionModel.FK_TblPlanDeClase_TblEvidenciaAprendizaje">
+            <End Role="TblEvidenciaAprendizaje" EntitySet="TblEvidenciaAprendizaje" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblInstrumentosEvaluacion" Association="PlaneacionModel.FK_TblPlanDeClase_TblInstrumentosEvaluacion">
+            <End Role="TblInstrumentosEvaluacion" EntitySet="TblInstrumentosEvaluacion" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblMaterialRecursosDidacticos" Association="PlaneacionModel.FK_TblPlanDeClase_TblMaterialRecursosDidacticos">
+            <End Role="TblMaterialRecursosDidacticos" EntitySet="TblMaterialRecursosDidacticos" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblTiempo" Association="PlaneacionModel.FK_TblPlanDeClase_TblTiempo">
+            <End Role="TblTiempo" EntitySet="TblTiempo" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
+          <EntitySet Name="CatMateria" EntityType="PlaneacionModel.CatMateria" />
+          <AssociationSet Name="FK_CatBloques_CatMateria" Association="PlaneacionModel.FK_CatBloques_CatMateria">
+            <End Role="CatMateria" EntitySet="CatMateria" />
+            <End Role="CatBloques" EntitySet="CatBloques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblTemas_CatMateria" Association="PlaneacionModel.FK_TblTemas_CatMateria">
+            <End Role="CatMateria" EntitySet="CatMateria" />
+            <End Role="TblTemas" EntitySet="TblTemas" />
+          </AssociationSet>
+          <EntitySet Name="TblPlaneacion" EntityType="PlaneacionModel.TblPlaneacion" />
+          <AssociationSet Name="FK_TblPlaneacion_CatCicloEscolar" Association="PlaneacionModel.FK_TblPlaneacion_CatCicloEscolar">
+            <End Role="CatCicloEscolar" EntitySet="CatCicloEscolar" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_CatGrupos" Association="PlaneacionModel.FK_TblPlaneacion_CatGrupos">
+            <End Role="CatGrupos" EntitySet="CatGrupos" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_CatMateria" Association="PlaneacionModel.FK_TblPlaneacion_CatMateria">
+            <End Role="CatMateria" EntitySet="CatMateria" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_CatPeriodo" Association="PlaneacionModel.FK_TblPlaneacion_CatPeriodo">
+            <End Role="CatPeriodo" EntitySet="CatPeriodo" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatProyectos_TblPlaneacion" Association="PlaneacionModel.FK_CatProyectos_TblPlaneacion">
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+            <End Role="CatProyectos" EntitySet="CatProyectos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_TblObjetosAprendizaje" Association="PlaneacionModel.FK_TblPlaneacion_TblObjetosAprendizaje">
+            <End Role="TblObjetosAprendizaje" EntitySet="TblObjetosAprendizaje" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_TblPlanDeClase" Association="PlaneacionModel.FK_TblPlaneacion_TblPlanDeClase">
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPlaneacion_TblUsuarios" Association="PlaneacionModel.FK_TblPlaneacion_TblUsuarios">
+            <End Role="TblUsuarios" EntitySet="TblUsuarios" />
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="CatCicloEscolar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlaneacion_CatCicloEscolar" FromRole="CatCicloEscolar" ToRole="TblPlaneacion" />
+        </EntityType>
+        <EntityType Name="CatGrupos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCatGrado" Type="Int32" />
+          <Property Name="strValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatGrado" Relationship="PlaneacionModel.FK_CatGrupos_CatGrado1" FromRole="CatGrupos" ToRole="CatGrado" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlaneacion_CatGrupos" FromRole="CatGrupos" ToRole="TblPlaneacion" />
+        </EntityType>
+        <Association Name="FK_CatGrupos_CatGrado1">
+          <End Type="PlaneacionModel.CatGrado" Role="CatGrado" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.CatGrupos" Role="CatGrupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatGrado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CatGrupos">
+              <PropertyRef Name="idCatGrado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblActividadesEnseñanzaAprendizaje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strApertura" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strDesarrollo" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strCierre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje" FromRole="TblActividadesEnseñanzaAprendizaje" ToRole="TblPlanDeClase" />
+        </EntityType>
+        <EntityType Name="TblAtributos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strApertura" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strDesarrollo" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strCierre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblAtributos" FromRole="TblAtributos" ToRole="TblPlanDeClase" />
+        </EntityType>
+        <EntityType Name="TblEstrategiasIntervencion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strApertura" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strDesarrollo" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strCierre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblEstrategiasIntervencion" FromRole="TblEstrategiasIntervencion" ToRole="TblPlanDeClase" />
+        </EntityType>
+        <EntityType Name="TblEvidenciaAprendizaje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strApertura" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strDesarrollo" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strCierre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblEvidenciaAprendizaje" FromRole="TblEvidenciaAprendizaje" ToRole="TblPlanDeClase" />
+        </EntityType>
+        <EntityType Name="TblInstrumentosEvaluacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strApertura" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strDesarrollo" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strCierre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblInstrumentosEvaluacion" FromRole="TblInstrumentosEvaluacion" ToRole="TblPlanDeClase" />
+        </EntityType>
+        <EntityType Name="TblMaterialRecursosDidacticos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strApertura" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strDesarrollo" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strCierre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblMaterialRecursosDidacticos" FromRole="TblMaterialRecursosDidacticos" ToRole="TblPlanDeClase" />
+        </EntityType>
+        <EntityType Name="TblObjetosAprendizaje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strAprendizajeEsperado" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlaneacion_TblObjetosAprendizaje" FromRole="TblObjetosAprendizaje" ToRole="TblPlaneacion" />
+        </EntityType>
+        <EntityType Name="TblPlanDeClase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idActividadesEnseñanzaAprendizaje" Type="Int32" />
+          <Property Name="idTiempo" Type="Int32" />
+          <Property Name="idAtributos" Type="Int32" />
+          <Property Name="idEvidenciaAprendizaje" Type="Int32" />
+          <Property Name="idInstrumentosEvaluacion" Type="Int32" />
+          <Property Name="idEstrategiasIntervencion" Type="Int32" />
+          <Property Name="idMateriasRecursosDidacticos" Type="Int32" />
+          <Property Name="strBibliografia" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strObservaciones" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblActividadesEnseñanzaAprendizaje" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje" FromRole="TblPlanDeClase" ToRole="TblActividadesEnseñanzaAprendizaje" />
+          <NavigationProperty Name="TblAtributos" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblAtributos" FromRole="TblPlanDeClase" ToRole="TblAtributos" />
+          <NavigationProperty Name="TblEstrategiasIntervencion" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblEstrategiasIntervencion" FromRole="TblPlanDeClase" ToRole="TblEstrategiasIntervencion" />
+          <NavigationProperty Name="TblEvidenciaAprendizaje" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblEvidenciaAprendizaje" FromRole="TblPlanDeClase" ToRole="TblEvidenciaAprendizaje" />
+          <NavigationProperty Name="TblInstrumentosEvaluacion" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblInstrumentosEvaluacion" FromRole="TblPlanDeClase" ToRole="TblInstrumentosEvaluacion" />
+          <NavigationProperty Name="TblMaterialRecursosDidacticos" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblMaterialRecursosDidacticos" FromRole="TblPlanDeClase" ToRole="TblMaterialRecursosDidacticos" />
+          <NavigationProperty Name="TblTiempo" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblTiempo" FromRole="TblPlanDeClase" ToRole="TblTiempo" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlaneacion_TblPlanDeClase" FromRole="TblPlanDeClase" ToRole="TblPlaneacion" />
+        </EntityType>
+        <EntityType Name="TblTiempo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strApertura" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strDesarrollo" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="strCierre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblTiempo" FromRole="TblTiempo" ToRole="TblPlanDeClase" />
+        </EntityType>
+        <Association Name="FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje">
+          <End Type="PlaneacionModel.TblActividadesEnseñanzaAprendizaje" Role="TblActividadesEnseñanzaAprendizaje" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblActividadesEnseñanzaAprendizaje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idActividadesEnseñanzaAprendizaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblAtributos">
+          <End Type="PlaneacionModel.TblAtributos" Role="TblAtributos" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAtributos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idAtributos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblEstrategiasIntervencion">
+          <End Type="PlaneacionModel.TblEstrategiasIntervencion" Role="TblEstrategiasIntervencion" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEstrategiasIntervencion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idEstrategiasIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblEvidenciaAprendizaje">
+          <End Type="PlaneacionModel.TblEvidenciaAprendizaje" Role="TblEvidenciaAprendizaje" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEvidenciaAprendizaje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idEvidenciaAprendizaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblInstrumentosEvaluacion">
+          <End Type="PlaneacionModel.TblInstrumentosEvaluacion" Role="TblInstrumentosEvaluacion" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblInstrumentosEvaluacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idInstrumentosEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblMaterialRecursosDidacticos">
+          <End Type="PlaneacionModel.TblMaterialRecursosDidacticos" Role="TblMaterialRecursosDidacticos" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMaterialRecursosDidacticos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idMateriasRecursosDidacticos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlanDeClase_TblTiempo">
+          <End Type="PlaneacionModel.TblTiempo" Role="TblTiempo" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTiempo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idTiempo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CatMateria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatBloques" Relationship="PlaneacionModel.FK_CatBloques_CatMateria" FromRole="CatMateria" ToRole="CatBloques" />
+          <NavigationProperty Name="TblTemas" Relationship="PlaneacionModel.FK_TblTemas_CatMateria" FromRole="CatMateria" ToRole="TblTemas" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlaneacion_CatMateria" FromRole="CatMateria" ToRole="TblPlaneacion" />
+        </EntityType>
+        <Association Name="FK_CatBloques_CatMateria">
+          <End Type="PlaneacionModel.CatMateria" Role="CatMateria" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.CatBloques" Role="CatBloques" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMateria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CatBloques">
+              <PropertyRef Name="idCatMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblTemas_CatMateria">
+          <End Type="PlaneacionModel.CatMateria" Role="CatMateria" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblTemas" Role="TblTemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMateria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblTemas">
+              <PropertyRef Name="idCatMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblPlaneacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCatMaterias" Type="Int32" />
+          <Property Name="idCatGrado" Type="Int32" />
+          <Property Name="idCatPeriodo" Type="Int32" />
+          <Property Name="idCatCicloEscolar" Type="Int32" />
+          <Property Name="idCatGrupos" Type="Int32" />
+          <Property Name="idPlanClase" Type="Int32" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="idObjetosAprendizaje" Type="Int32" />
+          <Property Name="strCompetenciaDesarrollar" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="strCriteriosDesempeño" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="strCriteriosEvaluacion" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="strInstitucion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strTotalSesiones" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strTotalHoras" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strContextoEscuela" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="strDesempeñoEstudianteConcluirBloque" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="strDiagnosticoSocioEducativo" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="strBloques" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatCicloEscolar" Relationship="PlaneacionModel.FK_TblPlaneacion_CatCicloEscolar" FromRole="TblPlaneacion" ToRole="CatCicloEscolar" />
+          <NavigationProperty Name="CatGrupos" Relationship="PlaneacionModel.FK_TblPlaneacion_CatGrupos" FromRole="TblPlaneacion" ToRole="CatGrupos" />
+          <NavigationProperty Name="CatMateria" Relationship="PlaneacionModel.FK_TblPlaneacion_CatMateria" FromRole="TblPlaneacion" ToRole="CatMateria" />
+          <NavigationProperty Name="CatPeriodo" Relationship="PlaneacionModel.FK_TblPlaneacion_CatPeriodo" FromRole="TblPlaneacion" ToRole="CatPeriodo" />
+          <NavigationProperty Name="CatProyectos" Relationship="PlaneacionModel.FK_CatProyectos_TblPlaneacion" FromRole="TblPlaneacion" ToRole="CatProyectos" />
+          <NavigationProperty Name="TblObjetosAprendizaje" Relationship="PlaneacionModel.FK_TblPlaneacion_TblObjetosAprendizaje" FromRole="TblPlaneacion" ToRole="TblObjetosAprendizaje" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlaneacion_TblPlanDeClase" FromRole="TblPlaneacion" ToRole="TblPlanDeClase" />
+          <NavigationProperty Name="TblUsuarios" Relationship="PlaneacionModel.FK_TblPlaneacion_TblUsuarios" FromRole="TblPlaneacion" ToRole="TblUsuarios" />
+        </EntityType>
+        <Association Name="FK_TblPlaneacion_CatCicloEscolar">
+          <End Type="PlaneacionModel.CatCicloEscolar" Role="CatCicloEscolar" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCicloEscolar">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idCatCicloEscolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_CatGrupos">
+          <End Type="PlaneacionModel.CatGrupos" Role="CatGrupos" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatGrupos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idCatGrupos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_CatMateria">
+          <End Type="PlaneacionModel.CatMateria" Role="CatMateria" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMateria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idCatMaterias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_CatPeriodo">
+          <End Type="PlaneacionModel.CatPeriodo" Role="CatPeriodo" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatPeriodo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idCatPeriodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatProyectos_TblPlaneacion">
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.CatProyectos" Role="CatProyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPlaneacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CatProyectos">
+              <PropertyRef Name="idPlaneacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_TblObjetosAprendizaje">
+          <End Type="PlaneacionModel.TblObjetosAprendizaje" Role="TblObjetosAprendizaje" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblObjetosAprendizaje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idObjetosAprendizaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_TblPlanDeClase">
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPlanDeClase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idPlanClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPlaneacion_TblUsuarios">
+          <End Type="PlaneacionModel.TblUsuarios" Role="TblUsuarios" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlaneacion">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PlaneacionModelStoreContainer" CdmEntityContainer="PlaneacionEntities">
+          <EntitySetMapping Name="CatBloques">
+            <EntityTypeMapping TypeName="PlaneacionModel.CatBloques">
+              <MappingFragment StoreEntitySet="CatBloques">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+                <ScalarProperty Name="idCatMateria" ColumnName="idCatMateria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatGrado">
+            <EntityTypeMapping TypeName="PlaneacionModel.CatGrado">
+              <MappingFragment StoreEntitySet="CatGrado">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatPeriodo">
+            <EntityTypeMapping TypeName="PlaneacionModel.CatPeriodo">
+              <MappingFragment StoreEntitySet="CatPeriodo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatProyectos">
+            <EntityTypeMapping TypeName="PlaneacionModel.CatProyectos">
+              <MappingFragment StoreEntitySet="CatProyectos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+                <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+                <ScalarProperty Name="idCatMateria" ColumnName="idCatMateria" />
+                <ScalarProperty Name="idCatBloque" ColumnName="idCatBloque" />
+                <ScalarProperty Name="idCatGrado" ColumnName="idCatGrado" />
+                <ScalarProperty Name="idCatPeriodo" ColumnName="idCatPeriodo" />
+                <ScalarProperty Name="idPlaneacion" ColumnName="idPlaneacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatTipoUsuario">
+            <EntityTypeMapping TypeName="PlaneacionModel.CatTipoUsuario">
+              <MappingFragment StoreEntitySet="CatTipoUsuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PlaneacionModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPersonal">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblPersonal">
+              <MappingFragment StoreEntitySet="TblPersonal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+                <ScalarProperty Name="strApellidoPaterno" ColumnName="strApellidoPaterno" />
+                <ScalarProperty Name="strApellidoMaterno" ColumnName="strApellidoMaterno" />
+                <ScalarProperty Name="dteFechaNacimiento" ColumnName="dteFechaNacimiento" />
+                <ScalarProperty Name="strEmail" ColumnName="strEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTemas">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblTemas">
+              <MappingFragment StoreEntitySet="TblTemas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+                <ScalarProperty Name="idCatMateria" ColumnName="idCatMateria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblUsuarios">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblUsuarios">
+              <MappingFragment StoreEntitySet="TblUsuarios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strMatricula" ColumnName="strMatricula" />
+                <ScalarProperty Name="strPassword" ColumnName="strPassword" />
+                <ScalarProperty Name="idPersonal" ColumnName="idPersonal" />
+                <ScalarProperty Name="idCatTipoUsuario" ColumnName="idCatTipoUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatCicloEscolar">
+            <EntityTypeMapping TypeName="PlaneacionModel.CatCicloEscolar">
+              <MappingFragment StoreEntitySet="CatCicloEscolar">
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatGrupos">
+            <EntityTypeMapping TypeName="PlaneacionModel.CatGrupos">
+              <MappingFragment StoreEntitySet="CatGrupos">
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+                <ScalarProperty Name="idCatGrado" ColumnName="idCatGrado" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblActividadesEnseñanzaAprendizaje">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblActividadesEnseñanzaAprendizaje">
+              <MappingFragment StoreEntitySet="TblActividadesEnseñanzaAprendizaje">
+                <ScalarProperty Name="strCierre" ColumnName="strCierre" />
+                <ScalarProperty Name="strDesarrollo" ColumnName="strDesarrollo" />
+                <ScalarProperty Name="strApertura" ColumnName="strApertura" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAtributos">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblAtributos">
+              <MappingFragment StoreEntitySet="TblAtributos">
+                <ScalarProperty Name="strCierre" ColumnName="strCierre" />
+                <ScalarProperty Name="strDesarrollo" ColumnName="strDesarrollo" />
+                <ScalarProperty Name="strApertura" ColumnName="strApertura" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEstrategiasIntervencion">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblEstrategiasIntervencion">
+              <MappingFragment StoreEntitySet="TblEstrategiasIntervencion">
+                <ScalarProperty Name="strCierre" ColumnName="strCierre" />
+                <ScalarProperty Name="strDesarrollo" ColumnName="strDesarrollo" />
+                <ScalarProperty Name="strApertura" ColumnName="strApertura" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEvidenciaAprendizaje">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblEvidenciaAprendizaje">
+              <MappingFragment StoreEntitySet="TblEvidenciaAprendizaje">
+                <ScalarProperty Name="strCierre" ColumnName="strCierre" />
+                <ScalarProperty Name="strDesarrollo" ColumnName="strDesarrollo" />
+                <ScalarProperty Name="strApertura" ColumnName="strApertura" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblInstrumentosEvaluacion">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblInstrumentosEvaluacion">
+              <MappingFragment StoreEntitySet="TblInstrumentosEvaluacion">
+                <ScalarProperty Name="strCierre" ColumnName="strCierre" />
+                <ScalarProperty Name="strDesarrollo" ColumnName="strDesarrollo" />
+                <ScalarProperty Name="strApertura" ColumnName="strApertura" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMaterialRecursosDidacticos">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblMaterialRecursosDidacticos">
+              <MappingFragment StoreEntitySet="TblMaterialRecursosDidacticos">
+                <ScalarProperty Name="strCierre" ColumnName="strCierre" />
+                <ScalarProperty Name="strDesarrollo" ColumnName="strDesarrollo" />
+                <ScalarProperty Name="strApertura" ColumnName="strApertura" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblObjetosAprendizaje">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblObjetosAprendizaje">
+              <MappingFragment StoreEntitySet="TblObjetosAprendizaje">
+                <ScalarProperty Name="strAprendizajeEsperado" ColumnName="strAprendizajeEsperado" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPlanDeClase">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblPlanDeClase">
+              <MappingFragment StoreEntitySet="TblPlanDeClase">
+                <ScalarProperty Name="strObservaciones" ColumnName="strObservaciones" />
+                <ScalarProperty Name="strBibliografia" ColumnName="strBibliografia" />
+                <ScalarProperty Name="idMateriasRecursosDidacticos" ColumnName="idMateriasRecursosDidacticos" />
+                <ScalarProperty Name="idEstrategiasIntervencion" ColumnName="idEstrategiasIntervencion" />
+                <ScalarProperty Name="idInstrumentosEvaluacion" ColumnName="idInstrumentosEvaluacion" />
+                <ScalarProperty Name="idEvidenciaAprendizaje" ColumnName="idEvidenciaAprendizaje" />
+                <ScalarProperty Name="idAtributos" ColumnName="idAtributos" />
+                <ScalarProperty Name="idTiempo" ColumnName="idTiempo" />
+                <ScalarProperty Name="idActividadesEnseñanzaAprendizaje" ColumnName="idActividadesEnseñanzaAprendizaje" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTiempo">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblTiempo">
+              <MappingFragment StoreEntitySet="TblTiempo">
+                <ScalarProperty Name="strCierre" ColumnName="strCierre" />
+                <ScalarProperty Name="strDesarrollo" ColumnName="strDesarrollo" />
+                <ScalarProperty Name="strApertura" ColumnName="strApertura" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatMateria">
+            <EntityTypeMapping TypeName="PlaneacionModel.CatMateria">
+              <MappingFragment StoreEntitySet="CatMateria">
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPlaneacion">
+            <EntityTypeMapping TypeName="PlaneacionModel.TblPlaneacion">
+              <MappingFragment StoreEntitySet="TblPlaneacion">
+                <ScalarProperty Name="strBloques" ColumnName="strBloques" />
+                <ScalarProperty Name="strDiagnosticoSocioEducativo" ColumnName="strDiagnosticoSocioEducativo" />
+                <ScalarProperty Name="strDesempeñoEstudianteConcluirBloque" ColumnName="strDesempeñoEstudianteConcluirBloque" />
+                <ScalarProperty Name="strContextoEscuela" ColumnName="strContextoEscuela" />
+                <ScalarProperty Name="strTotalHoras" ColumnName="strTotalHoras" />
+                <ScalarProperty Name="strTotalSesiones" ColumnName="strTotalSesiones" />
+                <ScalarProperty Name="strInstitucion" ColumnName="strInstitucion" />
+                <ScalarProperty Name="strCriteriosEvaluacion" ColumnName="strCriteriosEvaluacion" />
+                <ScalarProperty Name="strCriteriosDesempeño" ColumnName="strCriteriosDesempeño" />
+                <ScalarProperty Name="strCompetenciaDesarrollar" ColumnName="strCompetenciaDesarrollar" />
+                <ScalarProperty Name="idObjetosAprendizaje" ColumnName="idObjetosAprendizaje" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idPlanClase" ColumnName="idPlanClase" />
+                <ScalarProperty Name="idCatGrupos" ColumnName="idCatGrupos" />
+                <ScalarProperty Name="idCatCicloEscolar" ColumnName="idCatCicloEscolar" />
+                <ScalarProperty Name="idCatPeriodo" ColumnName="idCatPeriodo" />
+                <ScalarProperty Name="idCatGrado" ColumnName="idCatGrado" />
+                <ScalarProperty Name="idCatMaterias" ColumnName="idCatMaterias" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

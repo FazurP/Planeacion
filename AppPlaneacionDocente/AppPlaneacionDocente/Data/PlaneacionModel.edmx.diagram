@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="048afc14b1fc4a09a869584a38b77ecc" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="PlaneacionModel.CatBloques" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlaneacionModel.CatGrado" Width="1.5" PointX="3.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlaneacionModel.CatPeriodo" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlaneacionModel.CatProyectos" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlaneacionModel.CatTipoUsuario" Width="1.5" PointX="3.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlaneacionModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblPersonal" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblTemas" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblUsuarios" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblUsuarios_CatTipoUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblUsuarios_TblPersonal" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PlaneacionModel.CatCicloEscolar" Width="1.5" PointX="8.375" PointY="0.875" />
+        <EntityTypeShape EntityType="PlaneacionModel.CatGrupos" Width="1.5" PointX="6" PointY="18.25" />
+        <AssociationConnector Association="PlaneacionModel.FK_CatGrupos_CatGrado1" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblActividadesEnseñanzaAprendizaje" Width="1.5" PointX="10.375" PointY="13.5" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblAtributos" Width="1.5" PointX="10.375" PointY="16.25" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblEstrategiasIntervencion" Width="1.5" PointX="10.375" PointY="25.375" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblEvidenciaAprendizaje" Width="1.5" PointX="10.375" PointY="10.25" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblInstrumentosEvaluacion" Width="1.5" PointX="10.375" PointY="22.625" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblMaterialRecursosDidacticos" Width="1.5" PointX="10.375" PointY="28.125" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblObjetosAprendizaje" Width="1.5" PointX="6" PointY="21.5" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblPlanDeClase" Width="1.5" PointX="12.625" PointY="9" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblTiempo" Width="1.5" PointX="10.375" PointY="19.875" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlanDeClase_TblActividadesEnseñanzaAprendizaje" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlanDeClase_TblAtributos" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlanDeClase_TblEstrategiasIntervencion" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlanDeClase_TblEvidenciaAprendizaje" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlanDeClase_TblInstrumentosEvaluacion" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlanDeClase_TblMaterialRecursosDidacticos" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlanDeClase_TblTiempo" />
+        <EntityTypeShape EntityType="PlaneacionModel.CatMateria" Width="1.5" PointX="0.75" PointY="6.75" />
+        <AssociationConnector Association="PlaneacionModel.FK_CatBloques_CatMateria" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblTemas_CatMateria" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblPlaneacion" Width="1.5" PointX="14.875" PointY="8.875" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_CatCicloEscolar" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_CatGrupos" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_CatMateria" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_CatPeriodo" />
+        <AssociationConnector Association="PlaneacionModel.FK_CatProyectos_TblPlaneacion" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_TblObjetosAprendizaje" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_TblPlanDeClase" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_TblUsuarios" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

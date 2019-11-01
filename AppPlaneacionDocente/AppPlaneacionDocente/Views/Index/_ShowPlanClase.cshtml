@@ -1,0 +1,129 @@
+﻿@model AppPlaneacionDocente.Data.TblPlanDeClase
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-chevron-right"></span> Actividades de Enseñanza Aprendizaje</label>
+            </div>
+            <div class="form-group">
+                <label>Apertura</label>
+                @Html.TextBoxFor(model => model.TblActividadesEnseñanzaAprendizaje.strApertura, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Desarrollo</label>
+                @Html.TextBoxFor(model => model.TblActividadesEnseñanzaAprendizaje.strDesarrollo, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Cierre</label>
+                @Html.TextBoxFor(model => model.TblActividadesEnseñanzaAprendizaje.strCierre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-chevron-right"></span> Tiempo</label>
+            </div>
+            <div class="form-group">
+                <label>Apertura</label>
+                @Html.TextBoxFor(model => model.TblTiempo.strApertura, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Desarrollo</label>
+                @Html.TextBoxFor(model => model.TblTiempo.strDesarrollo, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Cierre</label>
+                @Html.TextBoxFor(model => model.TblTiempo.strCierre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    Atributos de las Competencias Genericas, Competencias Disciplinares y/o Profesionales que se Favorecenen su Desarrollo
+                    con las Actividades
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Apertura</label>
+                @Html.TextBoxFor(model => model.TblAtributos.strApertura, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Desarrollo</label>
+                @Html.TextBoxFor(model => model.TblAtributos.strDesarrollo, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Cierre</label>
+                @Html.TextBoxFor(model => model.TblAtributos.strCierre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-chevron-right"></span> Evidencias de Aprendizaje</label>
+            </div>
+            <div class="form-group">
+                <label>Apertura</label>
+                @Html.TextBoxFor(model => model.TblEvidenciaAprendizaje.strApertura, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Desarrollo</label>
+                @Html.TextBoxFor(model => model.TblEvidenciaAprendizaje.strDesarrollo, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Cierre</label>
+                @Html.TextBoxFor(model => model.TblEvidenciaAprendizaje.strCierre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-chevron-right"></span> Instrumentos de Evaluación</label>
+            </div>
+            <div class="form-group">
+                <label>Apertura</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strApertura, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Desarrollo</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strDesarrollo, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Cierre</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strCierre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-chevron-right"></span> Estrategias de Intervención</label>
+            </div>
+            <div class="form-group">
+                <label>Apertura</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strApertura, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Desarrollo</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strDesarrollo, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Cierre</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strCierre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-chevron-right"></span> Material y Recursos Didacticos</label>
+            </div>
+            <div class="form-group">
+                <label>Apertura</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strApertura, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Desarrollo</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strDesarrollo, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Cierre</label>
+                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strCierre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-chevron-right"></span> Bibliografia</label>
+            </div>
+            <div class="form-group">
+                @Html.TextAreaFor(model => model.strBibliografia,new { @class="form-control"})
+            </div>
+            <div>
+                <label><span class="glyphicon glyphicon-chevron-right"></span> Observaciones</label>
+            </div>
+            <div class="form-group">
+                @Html.TextAreaFor(model => model.strObservaciones,new { @class="form-control"})
+            </div>
+            <div class="form-group">
+                <input type="submit" name="name" value="Agregar" class="btn btn-success"/>
+            </div>
+        </div>
+    </div>

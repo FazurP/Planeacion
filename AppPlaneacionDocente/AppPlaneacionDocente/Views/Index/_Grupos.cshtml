@@ -1,0 +1,8 @@
+﻿
+@if (ViewBag.idCatGrupos != null)
+{
+    foreach (var item in ViewBag.idCatGrupos)
+    {
+        <option  value="@item.Value" >@item.Text</option>
+    }
+}
