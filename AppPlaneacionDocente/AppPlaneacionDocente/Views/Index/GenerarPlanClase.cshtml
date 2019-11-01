@@ -17,7 +17,7 @@
                             <th>Grupo</th>
                             <th>Materia</th>
                             <th>Periodo</th>
-                            <th>Editar</th>
+                            @*<th>Editar</th>*@
                             <th>Generar Plan de Clase</th>
                             <th>Descargar Planeacion</th>
                             <th>Eliminar</th>
@@ -33,10 +33,10 @@
                                 <td>@item.materia.strValor</td>
                                 <td>@item.periodo.strValor</td>
 
-                                <td><i class="glyphicon glyphicon-pencil btn btn-default"></i></td>
+                                @*<td><i class="glyphicon glyphicon-pencil btn btn-default"></i></td>*@
                                 <td onclick="create(@item.id)"><i class="glyphicon glyphicon-file btn btn-default"></i></td>
-                                <td><i class="glyphicon glyphicon-download-alt btn btn-default"></i></td>
-                                <td><i class="glyphicon glyphicon-trash btn btn-default"></i></td>
+                                <td onclick="generate(@item.id)"><i class="glyphicon glyphicon-download-alt btn btn-default"></i></td>
+                                <td onclick="Delete(@item.id)"><i class="glyphicon glyphicon-trash btn btn-default"></i></td>
 
                             </tr>
                         }
@@ -80,7 +80,25 @@
             {
                 $('#myModal').modal('show');
             });
+            }
+
+    function generate(id)
+    {
+            window.open('/Index/Planeacion?_idPlaneacion='+id+'');
+            };
+
+    function Delete(id)
+    {
+          let url = '/Index/DeletePlaneacion?_idPlaneacion=' + id;
+
+        $.get(url).done(function ()
+        {
+            console.log("Deleted Successfully");
+            window.location.href = "/Index/GenerarPlanClase";
+        });
     }
+
+
     </script>
 }
 

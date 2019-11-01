@@ -11,15 +11,10 @@ namespace AppPlaneacionDocente.Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TblPlanDeClase
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TblPlanDeClase()
-        {
-            this.TblPlaneacion = new HashSet<TblPlaneacion>();
-        }
-    
         public int id { get; set; }
         public Nullable<int> idActividadesEnseñanzaAprendizaje { get; set; }
         public Nullable<int> idTiempo { get; set; }
@@ -28,8 +23,11 @@ namespace AppPlaneacionDocente.Data
         public Nullable<int> idInstrumentosEvaluacion { get; set; }
         public Nullable<int> idEstrategiasIntervencion { get; set; }
         public Nullable<int> idMateriasRecursosDidacticos { get; set; }
+        [Required(ErrorMessage = "Este Campo es Requerido")]
         public string strBibliografia { get; set; }
+        [Required(ErrorMessage = "Este Campo es Requerido")]
         public string strObservaciones { get; set; }
+        public Nullable<int> idPlaneacion { get; set; }
     
         public virtual TblActividadesEnseñanzaAprendizaje TblActividadesEnseñanzaAprendizaje { get; set; }
         public virtual TblAtributos TblAtributos { get; set; }
@@ -38,7 +36,6 @@ namespace AppPlaneacionDocente.Data
         public virtual TblInstrumentosEvaluacion TblInstrumentosEvaluacion { get; set; }
         public virtual TblMaterialRecursosDidacticos TblMaterialRecursosDidacticos { get; set; }
         public virtual TblTiempo TblTiempo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblPlaneacion> TblPlaneacion { get; set; }
+        public virtual TblPlaneacion TblPlaneacion { get; set; }
     }
 }

@@ -11,13 +11,15 @@ namespace AppPlaneacionDocente.Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TblPlaneacion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TblPlaneacion()
         {
             this.CatProyectos = new HashSet<CatProyectos>();
+            this.TblPlanDeClase = new HashSet<TblPlanDeClase>();
         }
     
         public int id { get; set; }
@@ -26,7 +28,6 @@ namespace AppPlaneacionDocente.Data
         public Nullable<int> idCatPeriodo { get; set; }
         public Nullable<int> idCatCicloEscolar { get; set; }
         public Nullable<int> idCatGrupos { get; set; }
-        public Nullable<int> idPlanClase { get; set; }
         public Nullable<int> idUsuario { get; set; }
         public Nullable<int> idObjetosAprendizaje { get; set; }
         public string strCompetenciaDesarrollar { get; set; }
@@ -47,7 +48,8 @@ namespace AppPlaneacionDocente.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CatProyectos> CatProyectos { get; set; }
         public virtual TblObjetosAprendizaje TblObjetosAprendizaje { get; set; }
-        public virtual TblPlanDeClase TblPlanDeClase { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TblPlanDeClase> TblPlanDeClase { get; set; }
         public virtual TblUsuarios TblUsuarios { get; set; }
     }
 }

@@ -1,4 +1,7 @@
 ﻿@model AppPlaneacionDocente.Data.TblPlanDeClase
+@using (Html.BeginForm("SavePlanClase","Index",FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.idPlaneacion)
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
@@ -7,14 +10,17 @@
             <div class="form-group">
                 <label>Apertura</label>
                 @Html.TextBoxFor(model => model.TblActividadesEnseñanzaAprendizaje.strApertura, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblActividadesEnseñanzaAprendizaje.strApertura, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Desarrollo</label>
                 @Html.TextBoxFor(model => model.TblActividadesEnseñanzaAprendizaje.strDesarrollo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblActividadesEnseñanzaAprendizaje.strDesarrollo, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Cierre</label>
                 @Html.TextBoxFor(model => model.TblActividadesEnseñanzaAprendizaje.strCierre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblActividadesEnseñanzaAprendizaje.strCierre, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label><span class="glyphicon glyphicon-chevron-right"></span> Tiempo</label>
@@ -22,14 +28,17 @@
             <div class="form-group">
                 <label>Apertura</label>
                 @Html.TextBoxFor(model => model.TblTiempo.strApertura, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblTiempo.strApertura, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Desarrollo</label>
                 @Html.TextBoxFor(model => model.TblTiempo.strDesarrollo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblTiempo.strDesarrollo, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Cierre</label>
                 @Html.TextBoxFor(model => model.TblTiempo.strCierre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblTiempo.strCierre, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>
@@ -41,14 +50,17 @@
             <div class="form-group">
                 <label>Apertura</label>
                 @Html.TextBoxFor(model => model.TblAtributos.strApertura, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblAtributos.strApertura, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Desarrollo</label>
                 @Html.TextBoxFor(model => model.TblAtributos.strDesarrollo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblAtributos.strDesarrollo, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Cierre</label>
                 @Html.TextBoxFor(model => model.TblAtributos.strCierre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblAtributos.strCierre, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label><span class="glyphicon glyphicon-chevron-right"></span> Evidencias de Aprendizaje</label>
@@ -56,14 +68,17 @@
             <div class="form-group">
                 <label>Apertura</label>
                 @Html.TextBoxFor(model => model.TblEvidenciaAprendizaje.strApertura, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblEvidenciaAprendizaje.strApertura, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Desarrollo</label>
                 @Html.TextBoxFor(model => model.TblEvidenciaAprendizaje.strDesarrollo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblEvidenciaAprendizaje.strDesarrollo, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Cierre</label>
                 @Html.TextBoxFor(model => model.TblEvidenciaAprendizaje.strCierre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblEvidenciaAprendizaje.strCierre, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label><span class="glyphicon glyphicon-chevron-right"></span> Instrumentos de Evaluación</label>
@@ -71,59 +86,71 @@
             <div class="form-group">
                 <label>Apertura</label>
                 @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strApertura, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblInstrumentosEvaluacion.strApertura, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Desarrollo</label>
                 @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strDesarrollo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblInstrumentosEvaluacion.strDesarrollo, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Cierre</label>
                 @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strCierre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblInstrumentosEvaluacion.strCierre, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label><span class="glyphicon glyphicon-chevron-right"></span> Estrategias de Intervención</label>
             </div>
             <div class="form-group">
                 <label>Apertura</label>
-                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strApertura, new { @class = "form-control" })
+                @Html.TextBoxFor(model => model.TblEstrategiasIntervencion.strApertura, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblEstrategiasIntervencion.strApertura, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Desarrollo</label>
-                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strDesarrollo, new { @class = "form-control" })
+                @Html.TextBoxFor(model => model.TblEstrategiasIntervencion.strDesarrollo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblEstrategiasIntervencion.strDesarrollo, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Cierre</label>
-                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strCierre, new { @class = "form-control" })
+                @Html.TextBoxFor(model => model.TblEstrategiasIntervencion.strCierre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblEstrategiasIntervencion.strCierre, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label><span class="glyphicon glyphicon-chevron-right"></span> Material y Recursos Didacticos</label>
             </div>
             <div class="form-group">
                 <label>Apertura</label>
-                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strApertura, new { @class = "form-control" })
+                @Html.TextBoxFor(model => model.TblMaterialRecursosDidacticos.strApertura, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblMaterialRecursosDidacticos.strApertura, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Desarrollo</label>
-                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strDesarrollo, new { @class = "form-control" })
+                @Html.TextBoxFor(model => model.TblMaterialRecursosDidacticos.strDesarrollo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblMaterialRecursosDidacticos.strDesarrollo, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label>Cierre</label>
-                @Html.TextBoxFor(model => model.TblInstrumentosEvaluacion.strCierre, new { @class = "form-control" })
+                @Html.TextBoxFor(model => model.TblMaterialRecursosDidacticos.strCierre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TblMaterialRecursosDidacticos.strCierre, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <label><span class="glyphicon glyphicon-chevron-right"></span> Bibliografia</label>
             </div>
             <div class="form-group">
-                @Html.TextAreaFor(model => model.strBibliografia,new { @class="form-control"})
+                @Html.TextAreaFor(model => model.strBibliografia, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.strBibliografia, null, new { @class = "text-danger" })
             </div>
             <div>
                 <label><span class="glyphicon glyphicon-chevron-right"></span> Observaciones</label>
             </div>
             <div class="form-group">
-                @Html.TextAreaFor(model => model.strObservaciones,new { @class="form-control"})
+                @Html.TextAreaFor(model => model.strObservaciones, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.strObservaciones, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <input type="submit" name="name" value="Agregar" class="btn btn-success"/>
+                <input type="submit" name="name" value="Agregar" class="btn btn-warning" />
             </div>
         </div>
     </div>
+}

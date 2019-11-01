@@ -165,6 +165,7 @@
           <Property Name="idMateriasRecursosDidacticos" Type="int" />
           <Property Name="strBibliografia" Type="varchar" MaxLength="2500" />
           <Property Name="strObservaciones" Type="varchar" MaxLength="2500" />
+          <Property Name="idPlaneacion" Type="int" />
         </EntityType>
         <EntityType Name="TblPlaneacion">
           <Key>
@@ -176,7 +177,6 @@
           <Property Name="idCatPeriodo" Type="int" />
           <Property Name="idCatCicloEscolar" Type="int" />
           <Property Name="idCatGrupos" Type="int" />
-          <Property Name="idPlanClase" Type="int" />
           <Property Name="idUsuario" Type="int" />
           <Property Name="idObjetosAprendizaje" Type="int" />
           <Property Name="strCompetenciaDesarrollar" Type="varchar" MaxLength="8000" />
@@ -325,6 +325,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TblPlanDeClase_TblPlaneacion">
+          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="0..1" />
+          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPlaneacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idPlaneacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TblPlanDeClase_TblTiempo">
           <End Role="TblTiempo" Type="Self.TblTiempo" Multiplicity="0..1" />
           <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="*" />
@@ -394,18 +406,6 @@
             </Principal>
             <Dependent Role="TblPlaneacion">
               <PropertyRef Name="idObjetosAprendizaje" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblPlaneacion_TblPlanDeClase">
-          <End Role="TblPlanDeClase" Type="Self.TblPlanDeClase" Multiplicity="0..1" />
-          <End Role="TblPlaneacion" Type="Self.TblPlaneacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblPlanDeClase">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TblPlaneacion">
-              <PropertyRef Name="idPlanClase" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -518,6 +518,10 @@
             <End Role="TblMaterialRecursosDidacticos" EntitySet="TblMaterialRecursosDidacticos" />
             <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
           </AssociationSet>
+          <AssociationSet Name="FK_TblPlanDeClase_TblPlaneacion" Association="Self.FK_TblPlanDeClase_TblPlaneacion">
+            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          </AssociationSet>
           <AssociationSet Name="FK_TblPlanDeClase_TblTiempo" Association="Self.FK_TblPlanDeClase_TblTiempo">
             <End Role="TblTiempo" EntitySet="TblTiempo" />
             <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
@@ -540,10 +544,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_TblPlaneacion_TblObjetosAprendizaje" Association="Self.FK_TblPlaneacion_TblObjetosAprendizaje">
             <End Role="TblObjetosAprendizaje" EntitySet="TblObjetosAprendizaje" />
-            <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblPlaneacion_TblPlanDeClase" Association="Self.FK_TblPlaneacion_TblPlanDeClase">
-            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
             <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
           </AssociationSet>
           <AssociationSet Name="FK_TblPlaneacion_TblUsuarios" Association="Self.FK_TblPlaneacion_TblUsuarios">
@@ -779,9 +779,9 @@
             <End Role="TblObjetosAprendizaje" EntitySet="TblObjetosAprendizaje" />
             <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_TblPlaneacion_TblPlanDeClase" Association="PlaneacionModel.FK_TblPlaneacion_TblPlanDeClase">
-            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
+          <AssociationSet Name="FK_TblPlanDeClase_TblPlaneacion" Association="PlaneacionModel.FK_TblPlanDeClase_TblPlaneacion">
             <End Role="TblPlaneacion" EntitySet="TblPlaneacion" />
+            <End Role="TblPlanDeClase" EntitySet="TblPlanDeClase" />
           </AssociationSet>
           <AssociationSet Name="FK_TblPlaneacion_TblUsuarios" Association="PlaneacionModel.FK_TblPlaneacion_TblUsuarios">
             <End Role="TblUsuarios" EntitySet="TblUsuarios" />
@@ -907,7 +907,8 @@
           <NavigationProperty Name="TblInstrumentosEvaluacion" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblInstrumentosEvaluacion" FromRole="TblPlanDeClase" ToRole="TblInstrumentosEvaluacion" />
           <NavigationProperty Name="TblMaterialRecursosDidacticos" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblMaterialRecursosDidacticos" FromRole="TblPlanDeClase" ToRole="TblMaterialRecursosDidacticos" />
           <NavigationProperty Name="TblTiempo" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblTiempo" FromRole="TblPlanDeClase" ToRole="TblTiempo" />
-          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlaneacion_TblPlanDeClase" FromRole="TblPlanDeClase" ToRole="TblPlaneacion" />
+          <Property Name="idPlaneacion" Type="Int32" />
+          <NavigationProperty Name="TblPlaneacion" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblPlaneacion" FromRole="TblPlanDeClase" ToRole="TblPlaneacion" />
         </EntityType>
         <EntityType Name="TblTiempo">
           <Key>
@@ -1047,7 +1048,6 @@
           <Property Name="idCatPeriodo" Type="Int32" />
           <Property Name="idCatCicloEscolar" Type="Int32" />
           <Property Name="idCatGrupos" Type="Int32" />
-          <Property Name="idPlanClase" Type="Int32" />
           <Property Name="idUsuario" Type="Int32" />
           <Property Name="idObjetosAprendizaje" Type="Int32" />
           <Property Name="strCompetenciaDesarrollar" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
@@ -1066,7 +1066,7 @@
           <NavigationProperty Name="CatPeriodo" Relationship="PlaneacionModel.FK_TblPlaneacion_CatPeriodo" FromRole="TblPlaneacion" ToRole="CatPeriodo" />
           <NavigationProperty Name="CatProyectos" Relationship="PlaneacionModel.FK_CatProyectos_TblPlaneacion" FromRole="TblPlaneacion" ToRole="CatProyectos" />
           <NavigationProperty Name="TblObjetosAprendizaje" Relationship="PlaneacionModel.FK_TblPlaneacion_TblObjetosAprendizaje" FromRole="TblPlaneacion" ToRole="TblObjetosAprendizaje" />
-          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlaneacion_TblPlanDeClase" FromRole="TblPlaneacion" ToRole="TblPlanDeClase" />
+          <NavigationProperty Name="TblPlanDeClase" Relationship="PlaneacionModel.FK_TblPlanDeClase_TblPlaneacion" FromRole="TblPlaneacion" ToRole="TblPlanDeClase" />
           <NavigationProperty Name="TblUsuarios" Relationship="PlaneacionModel.FK_TblPlaneacion_TblUsuarios" FromRole="TblPlaneacion" ToRole="TblUsuarios" />
         </EntityType>
         <Association Name="FK_TblPlaneacion_CatCicloEscolar">
@@ -1141,15 +1141,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TblPlaneacion_TblPlanDeClase">
-          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="0..1" />
-          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="*" />
+        <Association Name="FK_TblPlanDeClase_TblPlaneacion">
+          <End Type="PlaneacionModel.TblPlaneacion" Role="TblPlaneacion" Multiplicity="0..1" />
+          <End Type="PlaneacionModel.TblPlanDeClase" Role="TblPlanDeClase" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TblPlanDeClase">
+            <Principal Role="TblPlaneacion">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="TblPlaneacion">
-              <PropertyRef Name="idPlanClase" />
+            <Dependent Role="TblPlanDeClase">
+              <PropertyRef Name="idPlaneacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1349,6 +1349,7 @@
           <EntitySetMapping Name="TblPlanDeClase">
             <EntityTypeMapping TypeName="PlaneacionModel.TblPlanDeClase">
               <MappingFragment StoreEntitySet="TblPlanDeClase">
+                <ScalarProperty Name="idPlaneacion" ColumnName="idPlaneacion" />
                 <ScalarProperty Name="strObservaciones" ColumnName="strObservaciones" />
                 <ScalarProperty Name="strBibliografia" ColumnName="strBibliografia" />
                 <ScalarProperty Name="idMateriasRecursosDidacticos" ColumnName="idMateriasRecursosDidacticos" />
@@ -1395,7 +1396,6 @@
                 <ScalarProperty Name="strCompetenciaDesarrollar" ColumnName="strCompetenciaDesarrollar" />
                 <ScalarProperty Name="idObjetosAprendizaje" ColumnName="idObjetosAprendizaje" />
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="idPlanClase" ColumnName="idPlanClase" />
                 <ScalarProperty Name="idCatGrupos" ColumnName="idCatGrupos" />
                 <ScalarProperty Name="idCatCicloEscolar" ColumnName="idCatCicloEscolar" />
                 <ScalarProperty Name="idCatPeriodo" ColumnName="idCatPeriodo" />

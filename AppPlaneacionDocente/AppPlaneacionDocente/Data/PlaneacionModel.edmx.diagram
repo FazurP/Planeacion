@@ -38,14 +38,14 @@
         <EntityTypeShape EntityType="PlaneacionModel.CatMateria" Width="1.5" PointX="0.75" PointY="6.75" />
         <AssociationConnector Association="PlaneacionModel.FK_CatBloques_CatMateria" />
         <AssociationConnector Association="PlaneacionModel.FK_TblTemas_CatMateria" />
-        <EntityTypeShape EntityType="PlaneacionModel.TblPlaneacion" Width="1.5" PointX="14.875" PointY="8.875" />
+        <EntityTypeShape EntityType="PlaneacionModel.TblPlaneacion" Width="1.5" PointX="15.625" PointY="9" />
         <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_CatCicloEscolar" />
         <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_CatGrupos" />
         <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_CatMateria" />
         <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_CatPeriodo" />
         <AssociationConnector Association="PlaneacionModel.FK_CatProyectos_TblPlaneacion" />
         <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_TblObjetosAprendizaje" />
-        <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_TblPlanDeClase" />
+        <AssociationConnector Association="PlaneacionModel.FK_TblPlanDeClase_TblPlaneacion" />
         <AssociationConnector Association="PlaneacionModel.FK_TblPlaneacion_TblUsuarios" />
         </Diagram>
     </edmx:Diagrams>
